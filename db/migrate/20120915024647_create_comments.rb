@@ -4,7 +4,7 @@ class CreateComments < ActiveRecord::Migration
       t.string :title
       t.text :body
       t.belongs_to :snippet
-
+      t.belongs_to :user
       t.timestamps
     end
     add_index :comments, :snippet_id

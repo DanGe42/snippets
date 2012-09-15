@@ -1,0 +1,9 @@
+development:
+  APP_ID: <%= ENV["APP_ID"] %>
+  APP_SECRET: <%= ENV["APP_SECRET"] %>
+
+
+production:
+  APP_ID: <%= ENV["APP_ID"] %>
+  APP_SECRET: <%= ENV["APP_SECRET"] %>
+  
