@@ -1,6 +1,6 @@
 class Snippet < ActiveRecord::Base
 
-  attr_accessible :code, :points, :title
+  attr_accessible :code, :points, :title, :user_id
 
   belongs_to :user
   has_many :tags
