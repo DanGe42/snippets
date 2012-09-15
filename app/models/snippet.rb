@@ -1,7 +1,8 @@
 class Snippet < ActiveRecord::Base
-  belongs_to :tagstosnip, :user
+  belongs_to :user
   attr_accessible :code, :points, :title, :user_id
   has_many :tags
+  has_many :tagstosnips
 
   validates :user, :code, :title, :presence => true
 
