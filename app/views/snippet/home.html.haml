@@ -1,6 +1,7 @@
 %h1 New snippet
 
 .snippet-container
-  %form{:method => "POST", :action => "/snippet/create"}
-    %textarea
-    %input{:type => "submit"}
+  = form_tag(:action => "create", :method => "post", :class => "snippet-form") do
+    = label_tag(:code, "Enter your code here")
+    = text_area_tag(:code)
+    = submit_tag("Post")
