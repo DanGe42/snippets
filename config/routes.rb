@@ -14,6 +14,17 @@ Snippets::Application.routes.draw do
   match '/new', :to => "snippets#home"
   match "/auth/:provider/callback" => "sessions#create"
   match "/signout" => "sessions#destroy", :as => :signout
+
+  match '/upvote/:snippet', :controller => "votes",
+                            :action => "upvote",
+                            :via => [:post],
+                            :as => :upvote
+
+  match '/downvote/:snippet', :controller => "votes",
+                             :action => "downvote",
+                             :via => [:post],
+                             :as => :downvote
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
