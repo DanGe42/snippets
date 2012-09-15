@@ -19,3 +19,7 @@
 # Eclipse ignores
 .metadata/
 .project
+
+
+#ignore facebook secret codes
+config/initializers/facebook_hidden.rb

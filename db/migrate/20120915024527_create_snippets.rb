@@ -4,7 +4,7 @@ class CreateSnippets < ActiveRecord::Migration
       t.string :title
       t.text :code
       t.integer :points
-
+      t.belongs_to :user
       t.timestamps
     end
   end
