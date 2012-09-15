@@ -9,12 +9,6 @@
     <th></th>
     <th></th>
   </tr>
-<% if current_user %>
-  Welcome <%= current_user.name %>!
-  <%= link_to "Sign Out", signout_path %>
-<% else %>
-  <%= link_to "Log in with Facebook", "/auth/facebook" %>
-<% end %>
 
 <% @snippets.each do |snippet| %>
   <tr>

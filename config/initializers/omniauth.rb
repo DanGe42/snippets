@@ -1,6 +1,6 @@
-require_relative 'facebook_hidden'
+FACEBOOK_CONFIG = YAML.load(ERB.new(File.read("#{Rails.root}/config/facebook.yml")).result)[Rails.env]
 
-h = Hidden.new();
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :facebook, h.app_ID, h.app_Secret
+  puts "#{FACEBOOK_CONFIG['APP_ID']} #{FACEBOOK_CONFIG['APP_SECRECT']}"
+  provider :facebook, FACEBOOK_CONFIG["APP_ID"], FACEBOOK_CONFIG["APP_SECRET"], {:client_options => {:ssl => {:verify => false}}}
 end
