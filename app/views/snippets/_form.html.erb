@@ -20,7 +20,9 @@
     <%= f.text_area :code %><br />
     <input type="filepicker" data-fp-apikey="Register for an apikey" data-fp-option-container="modal" data-fp-option-maxsize="100000000" data-fp-option-services="COMPUTER,DROPBOX,GITHUB,GOOGLE_DRIVE" onchange="alert(event.files[0].url)">
   </div>
-  <%= f.hidden_field :user_id, :value => current_user.id %>
+    <div id="result">
+    </div>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
   <div class="actions">
     <%= f.submit %>
   </div>
