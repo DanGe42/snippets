@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120915034952) do
+ActiveRecord::Schema.define(:version => 20120915173334) do
 
   create_table "comments", :force => true do |t|
     t.string   "title"
@@ -41,6 +41,17 @@ ActiveRecord::Schema.define(:version => 20120915034952) do
 
   add_index "tags", ["snippet_id"], :name => "index_tags_on_snippet_id"
 
+  create_table "user_snippet_votes", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "snippet_id"
+    t.boolean  "vote"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "user_snippet_votes", ["snippet_id"], :name => "index_user_snippet_votes_on_snippet_id"
+  add_index "user_snippet_votes", ["user_id"], :name => "index_user_snippet_votes_on_user_id"
+
   create_table "users", :force => true do |t|
     t.string   "provider"
     t.string   "uid"
@@ -48,5 +59,16 @@ ActiveRecord::Schema.define(:version => 20120915034952) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "votes", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "snippet_id"
+    t.integer  "vote"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "votes", ["snippet_id"], :name => "index_votes_on_snippet_id"
+  add_index "votes", ["user_id"], :name => "index_votes_on_user_id"
 
 end
