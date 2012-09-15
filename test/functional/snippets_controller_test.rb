@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class SnippetsControllerTest < ActionController::TestCase
-<<<<<<< HEAD
   setup do
     @snippet = snippets(:one)
   end
@@ -30,11 +29,6 @@ class SnippetsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get edit" do
-    get :edit, id: @snippet
-    assert_response :success
-  end
-
   test "should update snippet" do
     put :update, id: @snippet, snippet: { code: @snippet.code, points: @snippet.points, title: @snippet.title }
     assert_redirected_to snippet_path(assigns(:snippet))
@@ -47,16 +41,4 @@ class SnippetsControllerTest < ActionController::TestCase
 
     assert_redirected_to snippets_path
   end
-=======
-  test "should get create" do
-    get :create
-    assert_response :success
-  end
-
-  test "should get home" do
-    get :home
-    assert_response :success
-  end
-
->>>>>>> 2c7b3e3ae397f55efdd6d4ff1cdbb50689615aba
 end
