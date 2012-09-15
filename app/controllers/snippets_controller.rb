@@ -1,5 +1,4 @@
 class SnippetsController < ApplicationController
-<<<<<<< HEAD
   # GET /snippets
   # GET /snippets.json
   def index
@@ -80,11 +79,5 @@ class SnippetsController < ApplicationController
       format.html { redirect_to snippets_url }
       format.json { head :no_content }
     end
-=======
-  def create
-  end
-
-  def home
->>>>>>> 2c7b3e3ae397f55efdd6d4ff1cdbb50689615aba
   end
 end
