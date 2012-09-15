@@ -3,9 +3,14 @@ class Snippet < ActiveRecord::Base
 
   validates :user, :code, :title, :presence => true
 
-  attr_accessible :code, :title, :user, :points
+  attr_accessible :code, :title, :user_id, :points
 
-  #after_create setup_snippet
+  after_create :setup_snippet
+
+  def setup_snippet
+    self.points = 0
+    self.user.upvote_or_remove(self)
+  end
 
   def increment_points (incr = 1)
     self.update_attributes(:points => self.points + incr)
