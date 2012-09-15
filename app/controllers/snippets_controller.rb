@@ -80,4 +80,39 @@ class SnippetsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # POST /snippets/1/upvote
+  # POST /snippets/1/upvote.json
+  def upvote
+    @snippet = Snippet.find(params[:id])
+    result = current_user.upvote(@snippet)
+
+    respond_to do |format|
+      if result
+        format.html { redirect_to @snippet, notice: "Snippet successfully upvoted." }
+      else
+        format.html { redirect_to @snippet, notice: "Snippet not upvoted." }
+      end
+
+      format.json { { :success => result } }
+    end
+  end
+
+  # POST /snippets/1/downvote
+  # POST /snippets/1/downvote.json
+  def downvote
+    @snippet = Snippet.find(params[:id])
+    result = current_user.downvote(@snippet)
+
+    respond_to do |format|
+      if result
+        format.html { redirect_to @snippet, notice: "Snippet successfully upvoted." }
+      else
+        format.html { redirect_to @snippet, notice: "Snippet not upvoted." }
+      end
+
+      format.json { { :success => result } }
+    end
+  end
+
 end
