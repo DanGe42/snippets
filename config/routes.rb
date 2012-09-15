@@ -1,4 +1,6 @@
 Snippets::Application.routes.draw do
+  resources :tagstosnips
+
   resources :tags
 
   resources :comments

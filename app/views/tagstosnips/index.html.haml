@@ -1,0 +1,21 @@
+%h1 Listing tagstosnips
+
+%table
+  %tr
+    %th Tag
+    %th Snippet
+    %th
+    %th
+    %th
+
+  - @tagstosnips.each do |tagstosnip|
+    %tr
+      %td= tagstosnip.tag
+      %td= tagstosnip.snippet
+      %td= link_to 'Show', tagstosnip
+      %td= link_to 'Edit', edit_tagstosnip_path(tagstosnip)
+      %td= link_to 'Destroy', tagstosnip, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Tagstosnip', new_tagstosnip_path
