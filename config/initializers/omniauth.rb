@@ -1,4 +1,4 @@
-require 'facebook_hidden'
+require_relative 'facebook_hidden'
 
 h = Hidden.new();
 Rails.application.config.middleware.use OmniAuth::Builder do
