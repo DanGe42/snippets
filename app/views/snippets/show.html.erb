@@ -15,6 +15,9 @@
   <%= @snippet.points %>
 </p>
 
+<p><%= button_to "Up", upvote_path(@snippet), :method => :post %> |
+<%= button_to "Down", downvote_path(@snippet), :method => :post %></p>
+
 
 <%= link_to 'Edit', edit_snippet_path(@snippet) %> |
 <%= link_to 'Back', snippets_path %>
