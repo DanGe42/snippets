@@ -1,4 +1,14 @@
 Snippets::Application.routes.draw do
+  get "snippet/home"
+
+  get "snippet/create"
+
+  get "snippets/create"
+
+  get "snippets/home"
+
+  match '/new', :to => "snippets#home"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +58,7 @@ Snippets::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'snippet#home'
 
   # See how all your routes lay out with "rake routes"
 
