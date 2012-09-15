@@ -1,21 +1,15 @@
 Snippets::Application.routes.draw do
-<<<<<<< HEAD
   resources :tags
 
   resources :comments
 
   resources :snippets
-=======
-  get "snippet/home"
-
-  get "snippet/create"
 
   get "snippets/create"
 
   get "snippets/home"
 
   match '/new', :to => "snippets#home"
->>>>>>> 2c7b3e3ae397f55efdd6d4ff1cdbb50689615aba
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
