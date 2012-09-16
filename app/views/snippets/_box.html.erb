@@ -15,7 +15,7 @@
 			<div id=>
 			<%= snippet.user.name %>
 		</div>
-        <textarea class="code" disabled><%= snippet.code%></textarea>
+        <div class="code"><%= simple_format(snippet.code) %></div>
 		<%= truncate(snippet.description, :length => 80) %><br/>
 		<div class="time">
 		<%= "created " + localize_time(snippet.created_at) + " ago" %>
