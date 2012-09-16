@@ -1,4 +1,8 @@
 Snippets::Application.routes.draw do
+  get "popular/index"
+
+  get "recent/index"
+
   resources :tagstosnips
 
   resources :tags
@@ -74,7 +78,7 @@ Snippets::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'snippets#index'
+  root :to => 'recent#index'
 
   # See how all your routes lay out with "rake routes"
 
