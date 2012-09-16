@@ -5,6 +5,7 @@ class VotesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to request.referrer }
+      format.json { head :no_content }
     end
   end
 
@@ -14,6 +15,7 @@ class VotesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to request.referrer }
+      format.json { head :no_content }
     end
   end
 end
