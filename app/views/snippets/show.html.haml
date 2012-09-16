@@ -1,0 +1,14 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @snippet.title
+
+%p
+  %b Code:
+  = @snippet.code
+
+.vote-container{:data => {:snippet_id => @snippet.id}}
+  = better_button_to "Up", upvote_path(@snippet), {:method => :post, :class => "up-form"}, {:class => "up-arrow"}
+  %p.points= @snippet.points
+  = better_button_to "Down", downvote_path(@snippet), {:method => :post, :class => "down-form"}, {:class => "down-arrow"}
