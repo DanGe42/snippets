@@ -3,8 +3,9 @@
 <table>
   <tr>
     <th>Title</th>
-    <th>Code</th>
+    <th>Description</th>
     <th>Points</th>
+    <th>User</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,8 +14,9 @@
 <% @snippets.each do |snippet| %>
   <tr>
     <td><%= snippet.title %></td>
-    <td><%= snippet.code %></td>
-    <td><%= snippet.points %></td>
+    <td><%= truncate(snippet.description, :length => 80) %></td>
+    <td><%= snippet.points %></td>                                                                                                                    
+    <td><%= snippet.user.name %></td>
     <td><%= link_to 'Show', snippet %></td>
     <td><%= link_to 'Destroy', snippet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
