@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20120916035437) do
+=======
+ActiveRecord::Schema.define(:version => 20120916043924) do
+>>>>>>> aa50df60a8f29f5cfcc936fa74d2e032e0b5f313
 
   create_table "comments", :force => true do |t|
     t.string   "title"
@@ -23,11 +27,25 @@ ActiveRecord::Schema.define(:version => 20120916035437) do
 
   add_index "comments", ["snippet_id"], :name => "index_comments_on_snippet_id"
 
+<<<<<<< HEAD
+=======
+  create_table "snippet_tags", :force => true do |t|
+    t.integer  "tag_id"
+    t.integer  "snippet_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "snippet_tags", ["snippet_id"], :name => "index_tagstosnips_on_snippet_id"
+  add_index "snippet_tags", ["tag_id"], :name => "index_tagstosnips_on_tag_id"
+
+>>>>>>> aa50df60a8f29f5cfcc936fa74d2e032e0b5f313
   create_table "snippets", :force => true do |t|
     t.string   "title"
     t.text     "code"
     t.integer  "points"
     t.integer  "user_id"
+<<<<<<< HEAD
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "description"
@@ -36,22 +54,32 @@ ActiveRecord::Schema.define(:version => 20120916035437) do
   create_table "tags", :force => true do |t|
     t.string   "tag"
     t.integer  "snippet_id"
+=======
+>>>>>>> aa50df60a8f29f5cfcc936fa74d2e032e0b5f313
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
+<<<<<<< HEAD
   add_index "tags", ["snippet_id"], :name => "index_tags_on_snippet_id"
 
   create_table "tagstosnips", :force => true do |t|
     t.integer  "tag_id"
     t.integer  "snippet_id"
+=======
+  create_table "tags", :force => true do |t|
+    t.string   "tag"
+>>>>>>> aa50df60a8f29f5cfcc936fa74d2e032e0b5f313
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
+<<<<<<< HEAD
   add_index "tagstosnips", ["snippet_id"], :name => "index_tagstosnips_on_snippet_id"
   add_index "tagstosnips", ["tag_id"], :name => "index_tagstosnips_on_tag_id"
 
+=======
+>>>>>>> aa50df60a8f29f5cfcc936fa74d2e032e0b5f313
   create_table "users", :force => true do |t|
     t.string   "provider"
     t.string   "uid"
