@@ -13,9 +13,6 @@ Snippets::Application.routes.draw do
 
   get "snippets/create"
 
-  get "snippets/home"
-
-  match '/new', :to => "snippets#home"
   match "/auth/:provider/callback" => "sessions#create"
   match "/signout" => "sessions#destroy", :as => :signout
 
@@ -33,6 +30,11 @@ Snippets::Application.routes.draw do
                    :action => "search",
                    :via => [:get],
                    :as => :search
+
+  # Routing for sorting
+  match "/new" => "snippets#index"
+  match "/top" => "snippets#top"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

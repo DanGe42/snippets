@@ -1,27 +1,14 @@
-<h1>Listing snippets</h1>
+<h1>Recent snippets</h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Points</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<%= render :partial => "snippets/snippet_list" %>
 
-<% @snippets.each do |snippet| %>
-  <tr>
-    <td><%= snippet.title %></td>
-    <td><%= truncate(snippet.description, :length => 80) %></td>
-    <td><%= snippet.points %></td>                                                                                                                    
-    <td><%= snippet.user.name %></td>
-    <td><%= link_to 'Show', snippet %></td>
-    <td><%= link_to 'Destroy', snippet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+<br />
+
+<%= link_to 'Top Snippets', top_path %>
+
+<br /> 
+
+<%= link_to 'Recent Snippets', new_path %>
 
 <br />
 
