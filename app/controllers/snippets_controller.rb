@@ -5,8 +5,40 @@ class SnippetsController < ApplicationController
   # GET /snippets.json
   def index
  #  @snippets = Snippet.all
-    @snippets = Kaminari.paginate_array(Snippet.order(:points).all.reverse).page(params[:page]).per(10)
-    @newsnippets = Kaminari.paginate_array(Snippet.order(:created_at).all.reverse).page(params[:page]).per(10)
+    #@snippets = Kaminari.paginate_array(Snippet.order(:points).all.reverse).page(params[:page]).per(10)
+    @snippets = Kaminari.paginate_array(Snippet.order("created_at DESC")).page(params[:page]).per(10)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @snippets }
+    end
+  end
+
+  # GET /top
+  # GET /top.json
+  def top
+    time_span = params[:t]
+    now = Time.now.utc
+    # possible of t = {"all", "day", "month", "year"}
+    # if t is not in that set, then return today ("day")
+
+    @snippets = Snippet.order("points DESC")
+
+    case time_span
+    when "day"
+      lower_bound = now - 1.day
+    when "month"
+      lower_bound = now - 1.month
+    when "year"
+      lower_bound = now - 1.year
+    when "all"
+      lower_bound = nil
+    else    # defaults to "day"
+      lower_bound = now - 1.day
+    end
+
+    @snippets = @snippets.where("created_at >= ?", lower_bound) unless lower_bound.nil?
+    @snippets = Kaminari.paginate_array(@snippets.all).page(params[:page]).per(10)
 
     respond_to do |format|
       format.html # index.html.erb
