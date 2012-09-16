@@ -1,5 +1,5 @@
 body{
-	font:sylphaen;
+	font: Sylfaen;
 }
 
 a:link {
@@ -15,6 +15,10 @@ a:link {
 	z-index: 2;
 }
 
+.fb1{
+	position: fixed;
+	top:5px;
+}
 #topLn {
 	display: inline;
 	left: 78%;
@@ -147,6 +151,29 @@ a:link {
 	display:inline;
 }
 
+.formed{
+	position: relative;
+	text-align:center;
+}
+#ftitle{
+	position: relative;
+	text-align:center;
+	font-size:54px;
+	margin-bottom: -40px;
+	margin-top:-60px;
+}
+
+.title{
+	position: relative;
+	margin-top: -10px;
+	margin-bottom: -20px;
+}
+.dest{
+	text-align:center;
+}
+.time{
+	text-align:center;
+}
 ::-webkit-scrollbar {
 	width: 9px;
 	height: 1px;
