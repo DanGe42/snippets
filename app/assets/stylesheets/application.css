@@ -40,7 +40,7 @@ a:link {
 }
 #logo img {
 	width: 40%;
-	
+
 }
 
 #bar img {
@@ -127,6 +127,7 @@ a:link {
 .code {
 	position: relative;
 	 background-color: #FFFFFF;
+  font: 14px monospace;
 	opacity: 1.0;
 	width: 300px;
 	margin-left: auto;
@@ -181,5 +182,5 @@ a:link {
 
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 }
