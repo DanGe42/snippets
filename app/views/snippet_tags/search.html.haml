@@ -1,0 +1,9 @@
+%h1 Search results
+
+%table
+  %tr
+    %th Snippet ID
+  - @snippet_ids.each do |snippet_tag|
+    - snippet = Snippet.find(snippet_tag.snippet_id)
+    %tr
+      %td= snippet.id

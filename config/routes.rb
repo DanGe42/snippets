@@ -3,7 +3,7 @@ Snippets::Application.routes.draw do
 
   get "recent/index"
 
-  resources :tagstosnips
+  resources :snippet_tags
 
   resources :tags
 
@@ -28,6 +28,11 @@ Snippets::Application.routes.draw do
                              :action => "downvote",
                              :via => [:post],
                              :as => :downvote
+
+  match '/search', :controller => "snippet_tags",
+                   :action => "search",
+                   :via => [:get],
+                   :as => :search
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

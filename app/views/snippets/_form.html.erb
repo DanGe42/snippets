@@ -19,13 +19,16 @@
     <%= f.label :description %><br />
     <%= f.text_field :description %>
   </div>  
-  <div class="field">
+  <div class="field" id="code">
     <%= f.label :code %><br />
-    <%= f.text_area :code %><br />
-    <input type="filepicker" data-fp-apikey="Register for an apikey" data-fp-option-container="modal" data-fp-option-maxsize="100000000" data-fp-option-services="COMPUTER,DROPBOX,GITHUB,GOOGLE_DRIVE" onchange="alert(event.files[0].url)">
-  </div>
-    <div id="result">
+    <%= f.text_area :code%> <br />
+   </div>
+   <button type="button" onClick="clicked()">Pick</button>
+   
+   <div id="result">
     </div>
+    <input type="button" value="Get selection" onmousedown="getSelText()">
+    <div>
     <%= f.hidden_field :user_id, :value => current_user.id %>
   <div class="actions">
     <%= f.submit %>
