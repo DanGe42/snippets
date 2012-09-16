@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+export RAILS_ENV='development'
+export APP_ID='411919865536358'
+export APP_SECRET='bd86708c5e24932120d86626097f46b8'

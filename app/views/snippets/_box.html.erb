@@ -25,5 +25,11 @@
 		<%= link_to 'Destroy', snippet, method: :delete, data: { confirm: 'Are you sure?' } %>
 		<% end%>
 		</div>
+        <p>
+          <strong>Tags:</strong>
+          <% @snippet.all_tags.map {|t| t.tag }.each do |tag| %>
+            <%= link_to tag, URI.escape("/search?q=[#{tag}]") %>
+          <% end %>
+        </p>
 	</div>
 </div>
