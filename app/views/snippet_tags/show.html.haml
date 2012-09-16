@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Tag:
+  = @snippet_tag.tag
+%p
+  %b Snippet:
+  = @snippet_tag.snippet
+
+= link_to 'Edit', edit_snippet_tag_path(@snippet_tag)
+\|
+= link_to 'Back', snippet_tags_path

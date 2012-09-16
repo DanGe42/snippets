@@ -3,7 +3,7 @@ class SnippetsController < ApplicationController
   # GET /snippets.json
   def index
  #  @snippets = Snippet.all
-    @snippets = Kaminari.paginate_array(Snippet.all).page(params[:page]).per(2)
+    @snippets = Kaminari.paginate_array(Snippet.all).page(params[:page]).per(10)
 
     respond_to do |format|
       format.html # index.html.erb
