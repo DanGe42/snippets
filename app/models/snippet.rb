@@ -1,6 +1,7 @@
 class Snippet < ActiveRecord::Base
   belongs_to :user
-  attr_accessible :code, :points, :title, :description, :user_id, :all_tags
+  attr_accessible :code, :points, :title, :description, :user_id, :snippet_id, :all_tags
+  has_many :comments
   has_many :tags
   has_many :snippet_tags
 

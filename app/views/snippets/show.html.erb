@@ -30,5 +30,29 @@
 <p><%= better_button_to "Up", upvote_path(@snippet), {:method => :post, :class => "up-form"}, {:class => "up-arrow"} %> |
 <%= better_button_to "Down", downvote_path(@snippet), {:method => :post, :class => "down-form"}, {:class => "down-arrow"} %></p>
 
+<ol class="comments">
+    <% @snippet.comments.reverse.each do |comment| %>
+    <% if !comment.content.nil? %>
+    <li>
+      <% commenter = comment.commenter %>
+      <%-#= link_to commenter.name, commenter %>
+      <p><%= comment.content %></p>
+      <f class="timestamp <%= 'own' if current_user?(commenter) %>"><%= time_ago_in_words(comment.created_at) %> ago, by <%= commenter.name %></f>
+      
+      <% if current_user?(commenter) %>
+        <%= link_to "x", [@snippet, comment], :method => :delete, :confirm => "You sure?", :title => "Delete this comment", :class => "delete" %>
+      <% end %>
+    </li>
+    <% end %>
+    <% end %>
+    
+    <li>
+      <%= form_for([@snippet, @snippet.comments.build(:user_id => current_user.id, :snippet_id => @snippet.id)]) do |f| %>
+        <%= f.text_field :content, :placeholder => "Type your comment here..." %>
+        <%= f.submit "Comment", :class => "btn small default" %>
+      <% end %>
+    </li>
+</ol>
+
 
 <%= link_to 'Back', snippets_path %>
