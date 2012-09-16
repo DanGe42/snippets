@@ -1,10 +1,10 @@
 class User < ActiveRecord::Base
   has_many :snippets
   has_many :votes
+  has_many :comments
 
   validates :name, :presence => true
   attr_accessible :name, :provider, :uid
-  has_many :snippets 
  
   def self.create_with_omniauth(auth)
     create! do |user|
