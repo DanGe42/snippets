@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120916015011) do
+ActiveRecord::Schema.define(:version => 20120916043924) do
 
   create_table "comments", :force => true do |t|
     t.string   "title"
@@ -23,45 +23,30 @@ ActiveRecord::Schema.define(:version => 20120916015011) do
 
   add_index "comments", ["snippet_id"], :name => "index_comments_on_snippet_id"
 
-  create_table "snippets", :force => true do |t|
-    t.string   "title"
-    t.text     "code"
-    t.integer  "points"
-    t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.string   "description"
-  end
-
-  create_table "tags", :force => true do |t|
-    t.string   "tag"
-    t.integer  "snippet_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "tags", ["snippet_id"], :name => "index_tags_on_snippet_id"
-
-  create_table "tagstosnips", :force => true do |t|
+  create_table "snippet_tags", :force => true do |t|
     t.integer  "tag_id"
     t.integer  "snippet_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "tagstosnips", ["snippet_id"], :name => "index_tagstosnips_on_snippet_id"
-  add_index "tagstosnips", ["tag_id"], :name => "index_tagstosnips_on_tag_id"
+  add_index "snippet_tags", ["snippet_id"], :name => "index_tagstosnips_on_snippet_id"
+  add_index "snippet_tags", ["tag_id"], :name => "index_tagstosnips_on_tag_id"
 
-  create_table "user_snippet_votes", :force => true do |t|
+  create_table "snippets", :force => true do |t|
+    t.string   "title"
+    t.text     "code"
+    t.integer  "points"
     t.integer  "user_id"
-    t.integer  "snippet_id"
-    t.boolean  "vote"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "user_snippet_votes", ["snippet_id"], :name => "index_user_snippet_votes_on_snippet_id"
-  add_index "user_snippet_votes", ["user_id"], :name => "index_user_snippet_votes_on_user_id"
+  create_table "tags", :force => true do |t|
+    t.string   "tag"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "provider"
