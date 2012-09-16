@@ -1,0 +1,31 @@
+<div class="out">
+	<div class="topA">
+		<%= link_to image_tag('uparrow.png'), upvote_path(snippet), method: :post %>
+	</div>
+	<div class="points">
+		<%= snippet.points %>
+	</div>
+	<div class="btmA">
+		<%= link_to image_tag('downarrow.png'), downvote_path(snippet), method: :post %>
+	</div>
+	<div class="greenbox">
+		<div class="title">
+			<h2><%= link_to snippet.title, snippet_path(snippet)%></h2>
+			</div>
+			<div id=>
+			<%= snippet.user.name %>
+		</div>
+		<div class="code">
+			<%= snippet.code%>
+		</div>
+		<%= truncate(snippet.description, :length => 80) %><br/>
+		<div class="time">
+		<%= "created " + localize_time(snippet.created_at) + " ago" %>
+		</div>
+		<div class="dest">
+		<% if snippet.user==current_user%>
+		<%= link_to 'Destroy', snippet, method: :delete, data: { confirm: 'Are you sure?' } %>
+		<% end%>
+		</div>
+	</div>
+</div>

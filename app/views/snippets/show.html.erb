@@ -1,24 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @snippet.title %>
-</p>
-
-<p>
-	<b>Description:</b>
-  <%= @snippet.description %>
-</p>
-
-<p>
-  <b>Code:</b>
-  <%= @snippet.code %>
-</p>
-
-<p>
-  <b>Points:</b>
-  <%= @snippet.points %>
-</p>
+<%= render :partial => "snippets/box", :locals => { :snippet => @snippet } %>
 
 <p>
   <b>Tags:</b>
