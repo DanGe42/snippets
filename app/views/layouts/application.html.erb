@@ -54,13 +54,13 @@
 				//Seting up Filepicker.io with your api key
 				filepicker.setKey('AK3SHdPbbQYqb7Q1GeoIhz');
 				function clicked() {
-				filepicker.getFile('text/*',{'services' :[filepicker.SERVICES.COMPUTER,filepicker.SERVICES.GITHUB,filepicker.SERVICES.DROPBOX,filepicker.SERVICES.GOOGLE_DRIVE]},
-				function(url, metadata){
-				filepicker.getContents(url, function(data){
-				var txt = document.createTextNode(data);
-				var link = document.getElementById("result").appendChild(txt);
-				});
-				});
+					filepicker.getFile('text/*',{'services' :[filepicker.SERVICES.COMPUTER,filepicker.SERVICES.GITHUB,filepicker.SERVICES.DROPBOX,filepicker.SERVICES.GOOGLE_DRIVE]},
+					function(url, metadata){
+						filepicker.getContents(url, function(data){
+							var txt = document.createTextNode(data);
+							var link = document.getElementById("result").appendChild(txt);
+						});
+					});
 				};
 				function getSelText(){
 				    var txt = '';
