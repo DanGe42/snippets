@@ -5,12 +5,8 @@ class SnippetsController < ApplicationController
   # GET /snippets.json
   def index
  #  @snippets = Snippet.all
-<<<<<<< HEAD
     @snippets = Kaminari.paginate_array(Snippet.order(:points).all.reverse).page(params[:page]).per(10)
     @newsnippets = Kaminari.paginate_array(Snippet.order(:created_at).all.reverse).page(params[:page]).per(10)
-=======
-    @snippets = Kaminari.paginate_array(Snippet.all).page(params[:page]).per(10)
->>>>>>> master
 
     respond_to do |format|
       format.html # index.html.erb
