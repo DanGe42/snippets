@@ -1,3 +1,6 @@
+<% if @snippets.nil? %>
+  <p>There's nothing here</p>
+<% else %>
   <% @snippets.each do |snippet| %>
 	
 	<div id="outter">  
@@ -11,3 +14,4 @@
     <%= link_to 'Destroy', snippet, method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
   <% end %>
+<% end %>

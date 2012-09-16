@@ -90,10 +90,16 @@ class SnippetTagsController < ApplicationController
       tag_portion = $~[:tags]
       the_rest    = $~[:therest]
 
-      @snippets = search_tags(tag_portion)
+      @snippets = nil
 
-      if not the_rest.blank?
-        @snippets = search_rest(the_rest, @snippets)
+      if not tag_portion.blank?
+        @snippets = search_tags(tag_portion)
+
+        if not the_rest.blank?
+          @snippets = search_rest(the_rest, @snippets)
+        end
+      elsif not the_rest.blank?
+        @snippets = search_rest(the_rest)
       end
 
       respond_to do |format|
@@ -122,14 +128,26 @@ class SnippetTagsController < ApplicationController
     results.map { |st| Snippet.find(st.snippet_id) }
   end
 
-  def search_rest (the_rest, filtered_snippets)
+  def search_rest (the_rest, filtered_snippets = nil)
     terms = the_rest.split(/\s+/)
-    return @snippets.select do |s|
-      desc = s.description
-      for t in terms
-        false unless desc.include? t
+
+    if filtered_snippets.nil?
+      return Snippet.all.select do |s|
+        desc = s.description
+        for t in terms
+          false unless desc.include? t
+        end
+        true
       end
-      true
+
+    else
+      return filtered_snippets.select do |s|
+        desc = s.description
+        for t in terms
+          false unless desc.include? t
+        end
+        true
+      end
     end
   end
 end
