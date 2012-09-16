@@ -1,19 +1,5 @@
-<h1>Recent snippets</h1>
 
 <%= render :partial => "snippets/snippet_list" %>
 
-<br />
-
-<%= link_to 'Top Snippets', top_path %>
-
-<br /> 
-
-<%= link_to 'Recent Snippets', new_path %>
-
-<br />
-
-<%= link_to 'New Snippet', new_snippet_path %>
-
-<br />
 
 <%= paginate @snippets %>

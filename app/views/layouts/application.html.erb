@@ -15,8 +15,10 @@
 			<div class="fb">
 				<p>
 					signed in as: <%= current_user.name %>
-					<%= link_to image_tag('/assets/uparrow.png', :border => 0), signout_path%>
 				</p>
+				<div id="but" class='nice'}>
+					<%= button_to "signout", signout_path,{:class => "btn btn-success"} %>
+				</div>
 			</div>
 			<% else %>
 			<div class="fb">
@@ -32,25 +34,24 @@
 				<%= image_tag 'navbar.png' %>
 			</div>
 			<div id="recent">
-				<%= image_tag 'recent.png' %>
-			</div>
-			<div id="popular">
-				<%= image_tag 'popular.png'%>
-			</div>
-			<div id="create">
-				<%= image_tag 'submit.png'%>
-			</div>
-			<div id="search">
-				<%= render :partial => "layouts/search" %>
+				<%= link_to image_tag('recent.png'), snippets_path%>
+				<div id="popular">
+					<%= link_to image_tag('popular.png'), top_path%>
+				</div>
+				<div id="create">
+					<%= link_to image_tag('submit.png'), new_snippet_path %>
+				</div>
+				<div id="search">
+					<%= render :partial => "layouts/search" %>
+				</div>
 			</div>
 		</div>
 		</div>
-		</div>
-		<div class="content">
+		<div id="content">
 			<%= yield %>
 			<script src="http://api.filepicker.io/v0/filepicker.js"></script>
 			<script type="text/javascript">
-								//Seting up Filepicker.io with your api key
+				//Seting up Filepicker.io with your api key
 				filepicker.setKey('AK3SHdPbbQYqb7Q1GeoIhz');
 				function clicked() {
 				filepicker.getFile('text/*',{'services' :[filepicker.SERVICES.COMPUTER,filepicker.SERVICES.GITHUB,filepicker.SERVICES.DROPBOX,filepicker.SERVICES.GOOGLE_DRIVE]},

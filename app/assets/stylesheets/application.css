@@ -1,70 +1,158 @@
+body{
+	font:sylphaen;
+}
+
 a:link {
 	color: #000000;
 	text-decoration: none;
+	z-index: 5;
 }
 
 .navbar {
 	position: fixed;
 	width: 100%;
 	top: 5px;
+	z-index: 2;
 }
 
 #topLn {
-	left: 81%;
+	display: inline;
+	left: 78%;
 	top: -10px;
 }
 
-.fb img {
+#but{
 	position: fixed;
-	height: 30px;
+	top: 0px;
+	right: 2%
+}
+#btmLn {
 	top: 0px;
 }
 
-#btmLn {
-	top: -35px;
+#logo{
+	position: fixed;
+	top: 32px;
 }
-
 #logo img {
-	width: 20%;
+	width: 40%;
+	
 }
 
 #bar img {
 	position: fixed;
-	width: 80%;
+	width: 77%;
 	height: 125px;
 	right: 0px;
-	top: 10px;
+	top: 15px;
 }
 
-#recent img{
+#recent img {
 	position: fixed;
-	height: 170px;
-	top: 40px;
-	left: 23%;
+	width: 200px;
+	top: 55px;
+	left: 25%;
 }
 
-#popular img{
+#popular img {
 	position: fixed;
-	height: 170px;
-	top: 40px;
+	width: 230px;
+	top: 38px;
 	left: 42%;
 }
 
-#create img{
+#create img {
 	position: fixed;
-	height: 170px;
-	top: 40px;
-	left: 61%;
+	width: 210px;
+	top: 39px;
+	left: 62%;
 }
 
-#search{
+#search {
 	position: fixed;
-	top: 60px;
+	top: 65px;
 	left: 80%;
 }
 
+#content {
+	position: relative;
+	top: 190px;
+	width: 98%;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+.out{
+	position: relative;
+	width: 500px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom: -50px;
+}
 
-.content {
-	position: absolute;
-	top: 100px;
+.topA img{
+	position:relative;
+	width: 35px;
+	right: 10px;
+	top: 10px;
+}
+
+.btmA img{
+	position:relative;
+	width: 35px;
+	right:10px;
+	top: 10px;
+}
+
+.points{
+	position: relative;
+	top: 9px;
+}
+.greenbox {
+	position:relative;
+	top:-80px;
+	background-color: #A3F1C5;
+	opacity: 0.9;
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	border-style: solid;
+	border-width: 1.5px;
+	border-color: black;
+	padding: 10px;
+}
+.code {
+	position: relative;
+	 background-color: #FFFFFF;
+	opacity: 1.0;
+	width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+	padding:5px;
+	border-style: solid;
+	border-width: 1.5px;
+	border-color: black;
+}
+#topbar{
+	position: fixed;
+	top: 115px;
+	left: 23%;
+}
+#topbar ul{
+	font-size: 22px;
+}
+#top{
+	font-size: 25px;
+}
+#topbar li{
+	display:inline;
+}
+
+::-webkit-scrollbar {
+	width: 9px;
+	height: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }

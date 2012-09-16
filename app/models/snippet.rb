@@ -1,6 +1,6 @@
 class Snippet < ActiveRecord::Base
   belongs_to :user
-  attr_accessible :code, :points, :title, :description, :user_id, :viewtype
+  attr_accessible :code, :points, :title, :description, :user_id
   has_many :tags
   has_many :snippet_tags
 
@@ -11,7 +11,6 @@ class Snippet < ActiveRecord::Base
   def setup_snippet
     self.points = 0
     self.user.upvote_or_remove(self)
-    self.viewtype = "recent"
   end
 
   def increment_points (incr = 1)
