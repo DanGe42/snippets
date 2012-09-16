@@ -6,6 +6,7 @@ class SnippetsController < ApplicationController
   def index
  #  @snippets = Snippet.all
     #@snippets = Kaminari.paginate_array(Snippet.order(:points).all.reverse).page(params[:page]).per(10)
+    #@comments = Comment.all
     @snippets = Kaminari.paginate_array(Snippet.order("created_at DESC")).page(params[:page]).per(10)
 
     respond_to do |format|
