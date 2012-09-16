@@ -23,3 +23,9 @@
 
 #ignore facebook secret codes
 config/initializers/facebook_hidden.rb
+
+# Ignore ctags file (for us vim users)
+/tags
+
+# Ignore .rvmrc (since I use rvm)
+.rvmrc
