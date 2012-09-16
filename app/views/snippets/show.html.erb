@@ -39,8 +39,6 @@
     <% end %>
     <% end %>
     
-    <%= link_to "― Comment ―", "#!", :class => "comment-link" %>
-    
     <li>
       <%= form_for([@snippet, @snippet.comments.build(:user_id => current_user.id, :snippet_id => @snippet.id)]) do |f| %>
         <%= f.text_field :content, :placeholder => "Type your comment here..." %>
