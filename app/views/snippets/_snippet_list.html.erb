@@ -1,0 +1,24 @@
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Points</th>
+    <th>When</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @snippets.each do |snippet| %>
+  <tr>
+    <td><%= snippet.title %></td>
+    <td><%= truncate(snippet.description, :length => 80) %></td>
+    <td><%= snippet.points %></td>                                    
+    <td><%= localize_time(snippet.created_at) + " ago" %></td>                                                             
+    <td><%= snippet.user.name %></td>
+    <td><%= link_to 'Show', snippet %></td>
+    <td><%= link_to 'Destroy', snippet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+  <% end %>
+</table>

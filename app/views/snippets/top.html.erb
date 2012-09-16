@@ -1,0 +1,22 @@
+<h1>Top snippets</h1>
+
+<ol>
+  <li><%= link_to "Today", "#{top_path}?t=day" %></li>
+  <li><%= link_to "Month", "#{top_path}?t=month" %></li>
+  <li><%= link_to "Year", "#{top_path}?t=year" %></li>
+  <li><%= link_to "All time", "#{top_path}?t=all" %></li>
+</ol>
+
+<%= render :partial => "snippets/snippet_list" %>
+
+<br />
+
+<%= link_to 'Recent Snippets', new_path %>
+
+<br />
+
+<%= link_to 'New Snippet', new_snippet_path %>
+
+<br />
+
+<%= paginate @snippets %>
