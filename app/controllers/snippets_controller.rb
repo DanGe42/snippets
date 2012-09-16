@@ -4,8 +4,6 @@ class SnippetsController < ApplicationController
   # GET /snippets
   # GET /snippets.json
   def index
- #  @snippets = Snippet.all
-    #@snippets = Kaminari.paginate_array(Snippet.order(:points).all.reverse).page(params[:page]).per(10)
     @snippets = Kaminari.paginate_array(Snippet.order("created_at DESC")).page(params[:page]).per(10)
 
     respond_to do |format|
@@ -72,7 +70,9 @@ class SnippetsController < ApplicationController
   # POST /snippets
   # POST /snippets.json
   def create
+    tags = params[:tags]
     @snippet = Snippet.new(params[:snippet])
+    @snippet.all_tags = tags
 
     respond_to do |format|
       if @snippet.save
