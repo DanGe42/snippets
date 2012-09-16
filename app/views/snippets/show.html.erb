@@ -38,14 +38,14 @@
       <%-#= link_to commenter.name, commenter %>
       <p><%= comment.content %></p>
       <f class="timestamp <%= 'own' if current_user?(commenter) %>"><%= time_ago_in_words(comment.created_at) %> ago, by <%= commenter.name %></f>
-      
+
       <% if current_user?(commenter) %>
         <%= link_to "x", [@snippet, comment], :method => :delete, :confirm => "You sure?", :title => "Delete this comment", :class => "delete" %>
       <% end %>
     </li>
     <% end %>
     <% end %>
-    
+
     <li>
       <%= form_for([@snippet, @snippet.comments.build(:user_id => current_user.id, :snippet_id => @snippet.id)]) do |f| %>
         <%= f.text_field :content, :placeholder => "Type your comment here..." %>
