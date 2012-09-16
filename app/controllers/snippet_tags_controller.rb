@@ -135,7 +135,7 @@ class SnippetTagsController < ApplicationController
       return Snippet.all.select do |s|
         desc = s.description
         for t in terms
-          false unless desc.include? t
+          return false unless desc.include? t
         end
         true
       end
@@ -144,7 +144,7 @@ class SnippetTagsController < ApplicationController
       return filtered_snippets.select do |s|
         desc = s.description
         for t in terms
-          false unless desc.include? t
+          return false unless desc.include? t
         end
         true
       end

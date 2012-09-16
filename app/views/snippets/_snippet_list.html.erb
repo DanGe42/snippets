@@ -1,4 +1,4 @@
-<% if @snippets.nil? %>
+<% if @snippets.nil? || @snippets.blank? %>
   <p>There's nothing here</p>
 <% else %>
   <% @snippets.each do |snippet| %>
