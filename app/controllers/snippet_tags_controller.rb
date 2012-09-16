@@ -81,7 +81,7 @@ class SnippetTagsController < ApplicationController
     end
   end
 
-  QUERY_PATTERN = /\A(?<tags>(\[(\w|\-)+\])+)?(?<therest>.*)\Z/
+  QUERY_PATTERN = /\A(?<tags>(\[(\w|\-)+\])+)?\s*(?<therest>.*)\Z/
   TAG_PATTERN   = /\A\s*\[/
 
   def search
