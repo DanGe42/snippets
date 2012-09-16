@@ -20,8 +20,8 @@
   <%= @snippet.points %>
 </p>
 
-<p><%= button_to "Up", upvote_path(@snippet), :method => :post %> |
-<%= button_to "Down", downvote_path(@snippet), :method => :post %></p>
+<p><%= better_button_to "Up", upvote_path(@snippet), {:method => :post, :class => "up-form"}, {:class => "up-arrow"} %> |
+<%= better_button_to "Down", downvote_path(@snippet), {:method => :post, :class => "down-form"}, {:class => "down-arrow"} %></p>
 
 
 <%= link_to 'Back', snippets_path %>
