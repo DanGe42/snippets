@@ -15,10 +15,6 @@
     <%= f.label :tag %><br />
     <%= f.text_field :tag %>
   </div>
-  <div class="field">
-    <%= f.label :snippet %><br />
-    <%= f.collection_select :snippet_id, Snippet.all, :id, :title %>
-  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
