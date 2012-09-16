@@ -90,7 +90,11 @@ class SnippetTagsController < ApplicationController
       tag_portion = $~[:tags]
       the_rest    = $~[:therest]
 
-      @snippet_ids = search_tags(tag_portion)
+      @snippets = search_tags(tag_portion)
+
+      if not the_rest.blank?
+        @snippets = search_rest(the_rest, @snippets)
+      end
 
       respond_to do |format|
         format.html
@@ -115,6 +119,17 @@ class SnippetTagsController < ApplicationController
                         .group(:snippet_id)
                         .having("COUNT(DISTINCT(tags.id)) = ?", tags.size)
 
-    results
+    results.map { |st| Snippet.find(st.snippet_id) }
+  end
+
+  def search_rest (the_rest, filtered_snippets)
+    terms = the_rest.split(/\s+/)
+    return @snippets.select do |s|
+      desc = s.description
+      for t in terms
+        false unless desc.include? t
+      end
+      true
+    end
   end
 end
