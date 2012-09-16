@@ -1,67 +1,81 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Snippets</title>
+	<head>
+		<title>Snippets</title>
+		<link rel="stylesheet" type="text/css" href="app/assets/stylesheets/application.css">
 
+		<%= stylesheet_link_tag "application" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
 
-
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<% if current_user %>
-  Welcome <%= current_user.name %>!
-  <%= link_to "Sign Out", signout_path %>
-<% else %>
-  <%= link_to "Log in with Facebook", "/auth/facebook" %>
-<% end %>
-
-<%= render :partial => "layouts/search" %>
-
-<%= yield %>
-
-
-  <script src="http://api.filepicker.io/v0/filepicker.js"></script>
-<script type="text/javascript">
-    //Seting up Filepicker.io with your api key
-    filepicker.setKey('AK3SHdPbbQYqb7Q1GeoIhz');
-    function clicked() {
-    	console.log('clicked');
-    filepicker.getFile('text/*',{'services' :[filepicker.SERVICES.COMPUTER,filepicker.SERVICES.GITHUB,filepicker.SERVICES.DROPBOX,filepicker.SERVICES.GOOGLE_DRIVE]},
-        function(url, metadata){
-            console.log("url is", url);
-        	filepicker.getContents(url, function(data){
-        		console.log("got data", data);
-        		var txt = document.createTextNode(data);
-        		var link = document.getElementById("result").appendChild(txt);
-  				console.log("setAttr", data);
-  				
-  			});
-        });
-    };
-    function getSelText()
-{
-    var txt = '';
-     if (window.getSelection)
-    {
-        txt = window.getSelection();
-             }
-    else if (document.getSelection)
-    {
-        txt = document.getSelection();
-            }
-    else if (document.selection)
-    {
-        txt = document.selection.createRange().text;
-            }
-    else return;
-	
-	document.getElementsByName("snippet[code]")[0].value =  txt;
-};
-    
-    
-</script>
-</body>
+		<div id="topLn" class="navbar">
+			<% if current_user %>
+			<div class="fb">
+				<p>
+					signed in as: <%= current_user.name %>
+					<%= link_to image_tag('/assets/uparrow.png', :border => 0), signout_path%>
+				</p>
+			</div>
+			<% else %>
+			<div class="fb">
+				<%= link_to "Log in with Facebook", "/auth/facebook" %>
+			</div>
+			<% end %>
+		</div>
+		<div id="btmLn" class="navbar">
+			<div id="logo">
+				<%= image_tag 'snippit.png'%>
+			</div>
+			<div id="bar">
+				<%= image_tag 'navbar.png' %>
+			</div>
+			<div id="recent">
+				<%= image_tag 'recent.png' %>
+			</div>
+			<div id="popular">
+				<%= image_tag 'popular.png'%>
+			</div>
+			<div id="create">
+				<%= image_tag 'submit.png'%>
+			</div>
+			<div id="search">
+				<%= render :partial => "layouts/search" %>
+			</div>
+		</div>
+		</div>
+		</div>
+		<div class="content">
+			<%= yield %>
+			<script src="http://api.filepicker.io/v0/filepicker.js"></script>
+			<script type="text/javascript">
+								//Seting up Filepicker.io with your api key
+				filepicker.setKey('AK3SHdPbbQYqb7Q1GeoIhz');
+				function clicked() {
+				filepicker.getFile('text/*',{'services' :[filepicker.SERVICES.COMPUTER,filepicker.SERVICES.GITHUB,filepicker.SERVICES.DROPBOX,filepicker.SERVICES.GOOGLE_DRIVE]},
+				function(url, metadata){
+				filepicker.getContents(url, function(data){
+				var txt = document.createTextNode(data);
+				var link = document.getElementById("result").appendChild(txt);
+				});
+				});
+				};
+				function getSelText(){
+				    var txt = '';
+				     if (window.getSelection){
+				        txt = window.getSelection();
+				             }
+				    else if (document.getSelection){
+				        txt = document.getSelection();
+				            }
+				    else if (document.selection){
+				        txt = document.selection.createRange().text;
+				            }
+				    else return;
+				document.getElementsByName("snippet[code]")[0].value =  txt;
+				};
+			</script>
+		</div>
+	</body>
 </html>
