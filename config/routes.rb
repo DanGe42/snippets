@@ -3,9 +3,9 @@ Snippets::Application.routes.draw do
 
   resources :tags
 
-  resources :comments
-
-  resources :snippets
+  resources :snippets do
+    resources :comments
+  end
 
   get "snippets/create"
 
